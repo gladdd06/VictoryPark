@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Парк Побед — Приэльбрусье</title>
+<meta name="description" content="Парк Побед в Баксанском ущелье, среди снежных вершин. Интерактивная карта парка.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@400;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Golos Text',system-ui,-apple-system,'Segoe UI',sans-serif;color:#0F2433;background:#F3F6F7}
+a{color:#0F2433}a:hover{color:#B5471B}
+html{scroll-behavior:smooth}
+.pp-layer{transition:transform 950ms cubic-bezier(.2,.7,.1,1);transform-origin:0 0}
+.pp-pin{transition:background-color 200ms, box-shadow 200ms}
+.pp-pin:hover{box-shadow:0 0 0 6px rgba(255,255,255,.75)}
+.pp-pin:focus-visible,.pp-btn:focus-visible,.pp-row:focus-visible{outline:3px solid #B5471B;outline-offset:3px}
+.pp-row{transition:background-color 160ms}
+.pp-row:hover{background-color:#E6ECEE}
+.pp-spring{animation:pp-pulse 2.4s ease-out infinite}
+@keyframes pp-pulse{0%{box-shadow:0 0 0 0 rgba(28,127,174,.55)}100%{box-shadow:0 0 0 16px rgba(28,127,174,0)}}
+@media (prefers-reduced-motion: reduce){.pp-layer{transition:none}.pp-spring{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div style="width: 100%; overflow-x: hidden; background: #F3F6F7">
+
+<!-- ============ HERO ============ -->
+<header style="position: relative; min-height: 660px; background: linear-gradient(180deg, #0C2D4C 0%, #1B5583 62%, #2F74A3 100%); color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden">
+<svg aria-hidden="true" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" style="position: absolute; left: 0; bottom: 0; width: 100%; height: 480px; display: block">
+<path d="M0 520 L0 300 L120 210 L210 270 L330 170 L450 280 L560 230 L700 300 L820 250 L960 180 L1080 260 L1200 200 L1320 250 L1440 190 L1440 520 Z" fill="#7FA3BF"></path>
+<path d="M330 170 L372 214 L344 206 L326 224 L300 196 Z" fill="#EAF2F7"></path>
+<path d="M960 180 L1006 226 L972 214 L950 236 L918 212 Z" fill="#EAF2F7"></path>
+<path d="M1200 200 L1234 232 L1206 226 L1190 240 L1166 224 Z" fill="#EAF2F7"></path>
+<path d="M0 520 L0 150 L70 96 L150 120 L250 60 L330 130 L420 190 L520 280 L640 400 L760 520 Z" fill="#E9F1F6"></path>
+<path d="M250 60 L330 130 L420 190 L520 280 L640 400 L760 520 L470 520 L400 360 L330 300 L300 190 Z" fill="#A9C4D8"></path>
+<path d="M70 96 L120 180 L90 260 L150 330 L110 420 L0 470 L0 150 Z" fill="#C9DCE8"></path>
+<path d="M620 520 L760 330 L840 260 L900 290 L960 230 L1030 300 L1110 250 L1180 290 L1260 220 L1340 270 L1440 240 L1440 520 Z" fill="#DDE9F1"></path>
+<path d="M960 230 L1030 300 L1110 250 L1180 290 L1120 380 L1040 420 L980 360 L940 300 Z" fill="#9DBBD1"></path>
+<path d="M1260 220 L1340 270 L1440 240 L1440 420 L1360 400 L1300 330 Z" fill="#B5CDDD"></path>
+<path d="M0 520 L0 430 L140 400 L300 440 L460 410 L620 455 L800 420 L980 450 L1150 415 L1300 445 L1440 420 L1440 520 Z" fill="#143A52"></path>
+<path d="M0 520 L0 452 L18 410 L36 458 L56 400 L78 462 L98 420 L120 468 L142 404 L166 470 L186 428 L208 474 L232 412 L256 476 L278 436 L300 478 L324 420 L348 480 L372 440 L396 482 L420 426 L446 484 L470 446 L494 484 L520 432 L546 486 L572 450 L598 486 L624 438 L650 488 L676 452 L702 488 L730 440 L756 488 L782 454 L808 486 L836 436 L862 486 L888 450 L914 484 L942 430 L968 484 L994 446 L1020 482 L1048 424 L1074 480 L1100 440 L1126 478 L1154 416 L1180 476 L1206 434 L1232 472 L1260 408 L1286 470 L1312 426 L1338 466 L1366 402 L1392 462 L1416 418 L1440 456 L1440 520 Z" fill="#081B27"></path>
+</svg>
+
+<nav aria-label="Разделы сайта" style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; max-width: 1240px; width: 100%; box-sizing: border-box; margin: 0 auto; padding: 24px 32px">
+<div style="font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase">Парк Побед</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="#map" style="color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 500; padding: 12px 14px; min-height: 44px; box-sizing: border-box">Карта</a>
+</div>
+</nav>
+
+<div style="position: relative; max-width: 1240px; width: 100%; box-sizing: border-box; margin: 0 auto; padding: 40px 32px 470px; display: flex; flex-direction: column; gap: 22px">
+<div style="font-size: 15px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #D6E6F1">Приэльбрусье</div>
+<h1 style="margin: 0; font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 700; font-size: clamp(44px, 9vw, 124px); line-height: 0.95; letter-spacing: -0.02em">Парк Побед</h1>
+<p style="margin: 0; max-width: 560px; font-size: 20px; line-height: 1.45; color: #FFFFFF; text-wrap: pretty">Парк в Баксанском ущелье, среди снежных вершин.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#map" class="pp-btn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; box-sizing: border-box; padding: 14px 26px; background: #FFFFFF; color: #0F2433; border-radius: 999px; font-weight: 600; font-size: 17px; text-decoration: none">Открыть карту парка
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M6 13l6 6 6-6"></path></svg>
+</a>
+</div>
+</div>
+</header>
+
+<!-- ============ MAP ============ -->
+<section id="map" aria-label="Интерактивная карта парка" style="max-width: 1240px; box-sizing: border-box; margin: 0 auto; padding: 72px 32px 56px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px">
+<h2 style="margin: 0; font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 600; font-size: clamp(28px, 4.4vw, 48px); line-height: 1.05; letter-spacing: -0.01em">Карта парка</h2>
+<p style="margin: 0; max-width: 460px; font-size: 17px; line-height: 1.5; color: #3B5060">Нажмите на точку — карта приблизится. Синие точки 1, 2, 3 — питьевые нарзаны у подножия гор.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+
+<!-- stage -->
+<div style="flex: 999 1 560px; min-width: 0">
+<div style="position: relative; aspect-ratio: 1200 / 760; overflow: hidden; border-radius: 20px; background: #DCE8CC; box-shadow: 0 1px 0 #C5CFD4, 0 18px 40px -24px rgba(15,36,51,.45)">
+<div class="pp-layer" id="pp-layer" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%">
+
+<svg role="img" aria-label="План Парка Побед: овальный парк с памятником Эльбрусу в центре, река Баксан, три источника нарзана и горы вокруг" viewBox="0 0 1200 760" width="100%" height="100%" style="display: block; position: absolute; left: 0; top: 0">
+<defs>
+<symbol id="pp-fir" viewBox="0 0 20 30"><path d="M10 0 L16 10 H13 L18 19 H14 L19 26 H1 L6 19 H2 L7 10 H4 Z" fill="#2E6A4C"></path><rect x="9" y="26" width="2" height="4" fill="#6B4A2B"></rect></symbol>
+<symbol id="pp-firdark" viewBox="0 0 20 30"><path d="M10 0 L16 10 H13 L18 19 H14 L19 26 H1 L6 19 H2 L7 10 H4 Z" fill="#1F4E3A"></path><rect x="9" y="26" width="2" height="4" fill="#4E3620"></rect></symbol>
+<symbol id="pp-tree" viewBox="0 0 24 30"><rect x="11" y="18" width="2" height="12" fill="#7A5A3A"></rect><circle cx="12" cy="11" r="11" fill="#5C9A4E"></circle><circle cx="8" cy="8" r="5" fill="#74B062"></circle></symbol>
+<symbol id="pp-birch" viewBox="0 0 24 32"><rect x="11" y="16" width="2" height="16" fill="#F4F4EE"></rect><rect x="11" y="21" width="2" height="1.5" fill="#3A3A36"></rect><rect x="11" y="26" width="2" height="1.5" fill="#3A3A36"></rect><ellipse cx="12" cy="10" rx="9" ry="10" fill="#8CC06A"></ellipse><ellipse cx="9" cy="7" rx="4" ry="5" fill="#A6D484"></ellipse></symbol>
+<symbol id="pp-bloom" viewBox="0 0 28 32"><rect x="13" y="19" width="2" height="13" fill="#7A5A3A"></rect><circle cx="14" cy="12" r="12" fill="#F6F1EC"></circle><circle cx="9" cy="9" r="4" fill="#F3C9CF"></circle><circle cx="18" cy="14" r="4" fill="#F3C9CF"></circle><circle cx="15" cy="6" r="3" fill="#FFFFFF"></circle></symbol>
+<symbol id="pp-bush" viewBox="0 0 22 14"><ellipse cx="11" cy="8" rx="11" ry="6" fill="#4E8F4A"></ellipse><circle cx="6" cy="6" r="1.4" fill="#E28A2B"></circle><circle cx="12" cy="9" r="1.4" fill="#E28A2B"></circle><circle cx="16" cy="6" r="1.4" fill="#C8372D"></circle></symbol>
+</defs>
+
+<!-- meadow -->
+<rect x="0" y="0" width="1200" height="760" fill="#DCE8CC"></rect>
+
+<!-- northern ridge -->
+<path d="M0 158 L0 92 L88 34 L170 98 L262 22 L360 112 L452 48 L540 104 L642 16 L742 98 L832 42 L930 108 L1022 30 L1112 94 L1200 44 L1200 158 Z" fill="#6F8798"></path>
+<path d="M262 22 L360 112 L452 48 L540 104 L642 16 L600 90 L520 130 L450 96 L380 140 L300 90 Z" fill="#5A7284"></path>
+<path d="M88 34 L112 62 L96 56 L84 68 L64 52 Z" fill="#FFFFFF"></path>
+<path d="M262 22 L290 54 L270 46 L258 60 L236 42 Z" fill="#FFFFFF"></path>
+<path d="M452 48 L474 74 L458 68 L446 80 L430 64 Z" fill="#FFFFFF"></path>
+<path d="M642 16 L672 50 L650 42 L638 58 L614 40 Z" fill="#FFFFFF"></path>
+<path d="M832 42 L856 70 L838 62 L828 76 L810 58 Z" fill="#FFFFFF"></path>
+<path d="M1022 30 L1050 62 L1030 54 L1018 68 L996 50 Z" fill="#FFFFFF"></path>
+<path d="M1200 44 L1200 74 L1186 66 L1176 60 Z" fill="#FFFFFF"></path>
+<rect x="0" y="146" width="1200" height="30" fill="#3E7558"></rect>
+<use href="#pp-firdark" x="6" y="128" width="26" height="38"></use>
+<use href="#pp-firdark" x="58" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="112" y="126" width="28" height="40"></use>
+<use href="#pp-firdark" x="170" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="226" y="128" width="26" height="38"></use>
+<use href="#pp-firdark" x="284" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="338" y="126" width="28" height="40"></use>
+<use href="#pp-firdark" x="398" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="452" y="128" width="26" height="38"></use>
+<use href="#pp-firdark" x="512" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="566" y="126" width="28" height="40"></use>
+<use href="#pp-firdark" x="626" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="682" y="128" width="26" height="38"></use>
+<use href="#pp-firdark" x="740" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="796" y="126" width="28" height="40"></use>
+<use href="#pp-firdark" x="856" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="910" y="128" width="26" height="38"></use>
+<use href="#pp-firdark" x="968" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="1024" y="126" width="28" height="40"></use>
+<use href="#pp-firdark" x="1084" y="134" width="24" height="34"></use>
+<use href="#pp-firdark" x="1140" y="128" width="26" height="38"></use>
+
+<!-- river Baksan -->
+<path d="M0 206 C200 184 400 228 600 204 S1000 186 1200 210" fill="none" stroke="#5FAAD0" stroke-width="26" stroke-linecap="round"></path>
+<path d="M0 204 C200 182 400 226 600 202 S1000 184 1200 208" fill="none" stroke="#A9D8EC" stroke-width="6" stroke-dasharray="26 22" stroke-linecap="round"></path>
+<text x="1040" y="184" font-family="Golos Text, sans-serif" font-size="17" font-style="italic" font-weight="500" fill="#1E5F82">р. Баксан</text>
+
+<!-- park body -->
+<path d="M210 452 C210 342 360 296 600 300 C850 294 1000 350 1000 456 C1000 570 840 626 600 620 C350 628 210 562 210 452 Z" fill="#BCD79C" stroke="#7FAE5E" stroke-width="5"></path>
+
+<!-- activity grounds -->
+<ellipse cx="390" cy="385" rx="74" ry="42" fill="#EAD9B6"></ellipse>
+<ellipse cx="400" cy="535" rx="98" ry="50" fill="#EBD0A4"></ellipse>
+<ellipse cx="800" cy="540" rx="92" ry="48" fill="#E4BE9C"></ellipse>
+
+<!-- paths -->
+<path d="M214 452 C320 420 430 500 524 456" fill="none" stroke="#F4EAD0" stroke-width="15" stroke-linecap="round"></path>
+<path d="M676 456 C770 420 880 490 996 456" fill="none" stroke="#F4EAD0" stroke-width="15" stroke-linecap="round"></path>
+<path d="M600 378 L600 302" fill="none" stroke="#F4EAD0" stroke-width="15" stroke-linecap="round"></path>
+<path d="M600 532 L600 618" fill="none" stroke="#F4EAD0" stroke-width="15" stroke-linecap="round"></path>
+<path d="M546 404 C500 370 480 340 470 312" fill="none" stroke="#F4EAD0" stroke-width="12" stroke-linecap="round"></path>
+<path d="M656 404 C700 372 716 344 724 312" fill="none" stroke="#F4EAD0" stroke-width="12" stroke-linecap="round"></path>
+<path d="M546 506 C500 560 440 600 380 606" fill="none" stroke="#F4EAD0" stroke-width="12" stroke-linecap="round"></path>
+<path d="M656 506 C700 560 770 600 840 600" fill="none" stroke="#F4EAD0" stroke-width="12" stroke-linecap="round"></path>
+<circle cx="600" cy="455" r="78" fill="#F4EAD0"></circle>
+<circle cx="600" cy="455" r="60" fill="#E6D9BA"></circle>
+<circle cx="600" cy="455" r="60" fill="none" stroke="#CDBE9A" stroke-width="2" stroke-dasharray="6 6"></circle>
+
+<!-- monument: Elbrus, two summits -->
+<ellipse cx="600" cy="480" rx="48" ry="12" fill="#B9AE94"></ellipse>
+<path d="M550 480 L583 440 L600 453 L619 446 L650 480 Z" fill="#3F474E"></path>
+<path d="M550 480 L583 440 L600 453 L619 446 L650 480" fill="none" stroke="#98A2AA" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
+<rect x="546" y="478" width="108" height="5" rx="2" fill="#2C3338"></rect>
+<path d="M540 432 C536 448 536 464 540 480" fill="none" stroke="#8A6238" stroke-width="5" stroke-linecap="round"></path>
+<path d="M660 432 C664 448 664 464 660 480" fill="none" stroke="#8A6238" stroke-width="5" stroke-linecap="round"></path>
+
+<!-- rest glade: benches + boulder -->
+<path d="M340 372 C352 356 372 350 392 352" fill="none" stroke="#8A6238" stroke-width="7" stroke-linecap="round"></path>
+<path d="M412 356 C430 362 442 374 446 390" fill="none" stroke="#8A6238" stroke-width="7" stroke-linecap="round"></path>
+<ellipse cx="386" cy="394" rx="16" ry="10" fill="#C9CDD0"></ellipse>
+<ellipse cx="404" cy="400" rx="9" ry="6" fill="#DADDDF"></ellipse>
+
+<!-- playground: logs, stones, balance beams -->
+<circle cx="350" cy="520" r="9" fill="#B98552"></circle><circle cx="350" cy="520" r="4" fill="#D9A873"></circle>
+<circle cx="368" cy="512" r="9" fill="#B98552"></circle><circle cx="368" cy="512" r="4" fill="#D9A873"></circle>
+<circle cx="364" cy="532" r="9" fill="#B98552"></circle><circle cx="364" cy="532" r="4" fill="#D9A873"></circle>
+<circle cx="384" cy="524" r="9" fill="#B98552"></circle><circle cx="384" cy="524" r="4" fill="#D9A873"></circle>
+<circle cx="346" cy="540" r="8" fill="#B98552"></circle><circle cx="346" cy="540" r="3.5" fill="#D9A873"></circle>
+<ellipse cx="420" cy="512" rx="13" ry="9" fill="#C3C8CC"></ellipse>
+<ellipse cx="440" cy="520" rx="9" ry="6" fill="#D6DADD"></ellipse>
+<ellipse cx="372" cy="560" rx="11" ry="7" fill="#C3C8CC"></ellipse>
+<path d="M410 548 L470 536" fill="none" stroke="#8A6238" stroke-width="6" stroke-linecap="round"></path>
+<path d="M424 562 L466 556" fill="none" stroke="#8A6238" stroke-width="6" stroke-linecap="round"></path>
+<path d="M440 530 L436 566" fill="none" stroke="#6B4A2B" stroke-width="4" stroke-linecap="round"></path>
+<path d="M458 526 L456 562" fill="none" stroke="#6B4A2B" stroke-width="4" stroke-linecap="round"></path>
+
+<!-- workout: bars -->
+<path d="M748 556 L748 524 L790 524 L790 556" fill="none" stroke="#33414D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M790 524 L790 512 L828 512 L828 556" fill="none" stroke="#33414D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M842 560 L842 534 M856 560 L856 534 M836 538 L862 538" fill="none" stroke="#33414D" stroke-width="4" stroke-linecap="round"></path>
+<path d="M764 566 L812 566 M764 574 L812 574" fill="none" stroke="#33414D" stroke-width="3" stroke-linecap="round"></path>
+
+<!-- green plantings (north-east beds) -->
+<ellipse cx="800" cy="372" rx="118" ry="46" fill="#A9CC86"></ellipse>
+<use href="#pp-bloom" x="716" y="336" width="40" height="46"></use>
+<use href="#pp-bloom" x="770" y="322" width="44" height="50"></use>
+<use href="#pp-bloom" x="826" y="340" width="40" height="46"></use>
+<use href="#pp-bloom" x="872" y="356" width="36" height="42"></use>
+<use href="#pp-birch" x="748" y="366" width="28" height="38"></use>
+<use href="#pp-birch" x="806" y="372" width="28" height="38"></use>
+<use href="#pp-bush" x="700" y="392" width="30" height="20"></use>
+<use href="#pp-bush" x="842" y="398" width="30" height="20"></use>
+<use href="#pp-bush" x="778" y="404" width="26" height="17"></use>
+
+<!-- trees along the park edge -->
+<use href="#pp-tree" x="246" y="386" width="30" height="38"></use>
+<use href="#pp-fir" x="262" y="430" width="24" height="36"></use>
+<use href="#pp-tree" x="244" y="482" width="30" height="38"></use>
+<use href="#pp-fir" x="290" y="340" width="24" height="36"></use>
+<use href="#pp-tree" x="312" y="560" width="30" height="38"></use>
+<use href="#pp-birch" x="476" y="330" width="26" height="36"></use>
+<use href="#pp-tree" x="520" y="318" width="30" height="38"></use>
+<use href="#pp-fir" x="556" y="322" width="24" height="36"></use>
+<use href="#pp-fir" x="626" y="322" width="24" height="36"></use>
+<use href="#pp-tree" x="656" y="318" width="30" height="38"></use>
+<use href="#pp-tree" x="486" y="560" width="30" height="38"></use>
+<use href="#pp-fir" x="530" y="566" width="24" height="36"></use>
+<use href="#pp-bush" x="560" y="590" width="28" height="18"></use>
+<use href="#pp-bush" x="620" y="590" width="28" height="18"></use>
+<use href="#pp-fir" x="654" y="566" width="24" height="36"></use>
+<use href="#pp-tree" x="690" y="560" width="30" height="38"></use>
+<use href="#pp-tree" x="924" y="398" width="30" height="38"></use>
+<use href="#pp-fir" x="946" y="444" width="24" height="36"></use>
+<use href="#pp-tree" x="916" y="500" width="30" height="38"></use>
+<use href="#pp-birch" x="470" y="410" width="24" height="34"></use>
+<use href="#pp-birch" x="706" y="470" width="24" height="34"></use>
+<use href="#pp-tree" x="478" y="474" width="28" height="36"></use>
+
+<!-- southern ridge -->
+<path d="M0 760 L0 716 L70 660 L140 722 L230 694 L320 734 L420 706 L520 740 L600 724 L690 742 L790 706 L880 734 L970 694 L1060 722 L1130 660 L1200 712 L1200 760 Z" fill="#6F8798"></path>
+<path d="M70 660 L92 686 L76 680 L66 692 L48 678 Z" fill="#FFFFFF"></path>
+<path d="M1130 660 L1152 686 L1136 680 L1126 692 L1108 678 Z" fill="#FFFFFF"></path>
+<use href="#pp-firdark" x="150" y="676" width="28" height="42"></use>
+<use href="#pp-firdark" x="200" y="684" width="28" height="42"></use>
+<use href="#pp-firdark" x="250" y="678" width="28" height="42"></use>
+<use href="#pp-firdark" x="410" y="684" width="28" height="42"></use>
+<use href="#pp-firdark" x="462" y="690" width="28" height="42"></use>
+<use href="#pp-firdark" x="514" y="686" width="28" height="42"></use>
+<use href="#pp-firdark" x="664" y="688" width="28" height="42"></use>
+<use href="#pp-firdark" x="716" y="690" width="28" height="42"></use>
+<use href="#pp-firdark" x="768" y="684" width="28" height="42"></use>
+<use href="#pp-firdark" x="940" y="678" width="28" height="42"></use>
+<use href="#pp-firdark" x="992" y="684" width="28" height="42"></use>
+<use href="#pp-firdark" x="1044" y="676" width="28" height="42"></use>
+<!-- narzan springs at the foot of the mountains -->
+<path d="M330 646 C332 634 338 628 346 622" fill="none" stroke="#7CC6E6" stroke-width="4" stroke-linecap="round"></path>
+<path d="M600 668 C600 654 600 644 600 634" fill="none" stroke="#7CC6E6" stroke-width="4" stroke-linecap="round"></path>
+<path d="M870 646 C868 634 862 628 854 622" fill="none" stroke="#7CC6E6" stroke-width="4" stroke-linecap="round"></path>
+<circle cx="330" cy="668" r="22" fill="#D6C6A8"></circle><circle cx="330" cy="668" r="14" fill="#7CC6E6"></circle><circle cx="330" cy="668" r="14" fill="none" stroke="#156A94" stroke-width="2.5"></circle>
+<circle cx="600" cy="690" r="22" fill="#D6C6A8"></circle><circle cx="600" cy="690" r="14" fill="#7CC6E6"></circle><circle cx="600" cy="690" r="14" fill="none" stroke="#156A94" stroke-width="2.5"></circle>
+<circle cx="870" cy="668" r="22" fill="#D6C6A8"></circle><circle cx="870" cy="668" r="14" fill="#7CC6E6"></circle><circle cx="870" cy="668" r="14" fill="none" stroke="#156A94" stroke-width="2.5"></circle>
+</svg>
+
+<button type="button" class="pp-pin" data-pin="monument" data-base="#0F2433" aria-label="Памятник Эльбрусу" style="position: absolute; left: 50.000%; top: 67.632%; transform: translate(-50%, -50%); min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; border: 3px solid #FFFFFF; background-color: #0F2433; color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 14px; white-space: nowrap; cursor: pointer">Памятник</button>
+<button type="button" class="pp-pin" data-pin="green" data-base="#0F2433" aria-label="Зелёные насаждения" style="position: absolute; left: 67.167%; top: 56.316%; transform: translate(-50%, -50%); min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; border: 3px solid #FFFFFF; background-color: #0F2433; color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 14px; white-space: nowrap; cursor: pointer">Сад</button>
+<button type="button" class="pp-pin" data-pin="play" data-base="#0F2433" aria-label="Детская площадка" style="position: absolute; left: 33.333%; top: 77.895%; transform: translate(-50%, -50%); min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; border: 3px solid #FFFFFF; background-color: #0F2433; color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 14px; white-space: nowrap; cursor: pointer">Детям</button>
+<button type="button" class="pp-pin" data-pin="rest" data-base="#0F2433" aria-label="Скамейки" style="position: absolute; left: 32.667%; top: 57.105%; transform: translate(-50%, -50%); min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; border: 3px solid #FFFFFF; background-color: #0F2433; color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 14px; white-space: nowrap; cursor: pointer">Скамейки</button>
+<button type="button" class="pp-pin" data-pin="sport" data-base="#0F2433" aria-label="Спортплощадка" style="position: absolute; left: 66.667%; top: 78.158%; transform: translate(-50%, -50%); min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; border: 3px solid #FFFFFF; background-color: #0F2433; color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 14px; white-space: nowrap; cursor: pointer">Спорт</button>
+<button type="button" class="pp-pin pp-spring" data-pin="s1" data-base="#156A94" aria-label="Нарзан № 1" style="position: absolute; left: 27.500%; top: 87.895%; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; border: 3px solid #FFFFFF; background-color: #156A94; color: #FFFFFF; font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center">1</button>
+<button type="button" class="pp-pin pp-spring" data-pin="s2" data-base="#156A94" aria-label="Нарзан № 2" style="position: absolute; left: 50.000%; top: 90.789%; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; border: 3px solid #FFFFFF; background-color: #156A94; color: #FFFFFF; font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center">2</button>
+<button type="button" class="pp-pin pp-spring" data-pin="s3" data-base="#156A94" aria-label="Нарзан № 3" style="position: absolute; left: 72.500%; top: 87.895%; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; border: 3px solid #FFFFFF; background-color: #156A94; color: #FFFFFF; font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center">3</button>
+</div>
+<button type="button" class="pp-btn" id="pp-back" style="position: absolute; left: 16px; top: 16px; min-height: 44px; padding: 10px 18px 10px 14px; border: 0; border-radius: 999px; background: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; display: none; align-items: center; gap: 8px; box-shadow: 0 6px 18px -8px rgba(15,36,51,.6)">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+Вся карта
+</button>
+</div>
+</div>
+</div>
+
+<div aria-live="polite" style="min-height: 76px; display: flex; flex-direction: column; justify-content: center">
+<div id="pp-legend" style="display: flex; flex-wrap: wrap; gap: 10px">
+<button type="button" class="pp-row" data-pin-go="monument" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #0F2433"></span>Памятник Эльбрусу</button>
+<button type="button" class="pp-row" data-pin-go="green" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #0F2433"></span>Зелёные насаждения</button>
+<button type="button" class="pp-row" data-pin-go="play" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #0F2433"></span>Детская площадка</button>
+<button type="button" class="pp-row" data-pin-go="rest" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #0F2433"></span>Скамейки</button>
+<button type="button" class="pp-row" data-pin-go="sport" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #0F2433"></span>Спортплощадка</button>
+<button type="button" class="pp-row" data-pin-go="s1" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #156A94"></span>Нарзан № 1</button>
+<button type="button" class="pp-row" data-pin-go="s2" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #156A94"></span>Нарзан № 2</button>
+<button type="button" class="pp-row" data-pin-go="s3" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px 8px 12px; border: 1px solid #C5CFD4; border-radius: 999px; background-color: #FFFFFF; color: #0F2433; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; border-radius: 50%; background-color: #156A94"></span>Нарзан № 3</button>
+</div>
+<div id="pp-current" style="display: none; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+<h3 id="pp-title" style="margin: 0; font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15; letter-spacing: -0.01em"></h3>
+<p id="pp-short" style="margin: 0; font-size: 17px; line-height: 1.45; color: #3B5060"></p>
+</div>
+<button type="button" class="pp-btn" id="pp-next" style="min-height: 48px; padding: 12px 20px; border: 0; border-radius: 999px; background: #0F2433; color: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px"><span id="pp-next-label"></span>
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+</button>
+</div>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background: #0F2433; color: #FFFFFF">
+<div style="max-width: 1240px; box-sizing: border-box; margin: 0 auto; padding: 36px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<div style="font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase">Парк Побед</div>
+<div style="font-size: 15px; color: #D6E2EA">Поляна нарзанов · Приэльбрусье · Кабардино-Балкария</div>
+</div>
+</footer>
+
+</div>
+<script>
+(function () {
+  var points = [
+    {id:'monument', x:600, y:450, zoom:2.6, title:'Памятник Эльбрусу', short:'Двуглавый Эльбрус из железа в центре парка.'},
+    {id:'green', x:800, y:372, zoom:2.5, title:'Зелёные насаждения', short:'Берёзы, хвойные деревья и ягодные кустарники.'},
+    {id:'play', x:400, y:540, zoom:2.6, title:'Детская площадка', short:'Брёвна, валуны и балансиры.'},
+    {id:'rest', x:392, y:388, zoom:2.6, title:'Скамейки', short:'Поляна отдыха в тени деревьев.'},
+    {id:'sport', x:800, y:544, zoom:2.6, title:'Спортплощадка', short:'Турники и брусья под открытым небом.'},
+    {id:'s1', x:330, y:660, zoom:2.8, title:'Нарзан № 1', short:'Питьевой источник у подножия гор.'},
+    {id:'s2', x:600, y:676, zoom:2.8, title:'Нарзан № 2', short:'Питьевой источник у подножия гор.'},
+    {id:'s3', x:870, y:660, zoom:2.8, title:'Нарзан № 3', short:'Питьевой источник у подножия гор.'}
+  ];
+  var sel = null;
+  var layer = document.getElementById('pp-layer');
+  var back = document.getElementById('pp-back');
+  var legend = document.getElementById('pp-legend');
+  var current = document.getElementById('pp-current');
+  var pins = Array.prototype.slice.call(document.querySelectorAll('[data-pin]'));
+  function find(id) { for (var i = 0; i < points.length; i++) if (points[i].id === id) return i; return -1; }
+  function render() {
+    var idx = find(sel), cur = idx >= 0 ? points[idx] : null;
+    var s = cur ? cur.zoom : 1, tx = 0, ty = 0;
+    if (cur) {
+      var cx = cur.x / 1200 * 100, cy = cur.y / 760 * 100;
+      tx = Math.min(0, Math.max(100 - 100 * s, 50 - cx * s));
+      ty = Math.min(0, Math.max(100 - 100 * s, 50 - cy * s));
+    }
+    var k = cur ? 1 : Math.min(1, Math.max(0.55, layer.clientWidth / 640));
+    layer.style.transform = 'translate(' + tx.toFixed(3) + '%, ' + ty.toFixed(3) + '%) scale(' + s + ')';
+    pins.forEach(function (b) {
+      b.style.transform = 'translate(-50%, -50%) scale(' + (k / s).toFixed(4) + ')';
+      b.style.backgroundColor = b.getAttribute('data-pin') === sel ? '#B5471B' : b.getAttribute('data-base');
+    });
+    back.style.display = cur ? 'flex' : 'none';
+    legend.style.display = cur ? 'none' : 'flex';
+    current.style.display = cur ? 'flex' : 'none';
+    if (cur) {
+      document.getElementById('pp-title').textContent = cur.title;
+      document.getElementById('pp-short').textContent = cur.short;
+      document.getElementById('pp-next-label').textContent = 'Дальше: ' + points[(idx + 1) % points.length].title;
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-pin],[data-pin-go],#pp-back,#pp-next');
+    if (!t) return;
+    if (t.id === 'pp-back') sel = null;
+    else if (t.id === 'pp-next') sel = points[(find(sel) + 1) % points.length].id;
+    else sel = t.getAttribute('data-pin') || t.getAttribute('data-pin-go');
+    render();
+  });
+  window.addEventListener('resize', render);
+  render();
+})();
+</script>
+</body>
+</html>
